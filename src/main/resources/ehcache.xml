@@ -3,11 +3,11 @@
 <ehcache>
 
     <defaultCache
-            maxEntriesLocalHeap="100"
-            eternal="false"
-            timeToIdleSeconds="1200"
-            timeToLiveSeconds="1200">
-    </defaultCache>
+    maxEntriesLocalHeap="100000"
+    eternal="false"
+    timeToIdleSeconds="1200"
+    timeToLiveSeconds="1200">
+</defaultCache>
 
 
     <cache name="instituteCache"
@@ -22,7 +22,7 @@
         <persistence strategy="localTempSwap"/>
     </cache>
 
-    <cache name="studentCache"
+    <cache name="hibernate.cachetest.Student"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"

@@ -166,30 +166,18 @@ public class HibernateTestCache {
         app.clearAll();
 
 
+        int id = 3844;
 
-        Session session = app.sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
 
         startTimer();
 
-        for(int i = 0; i < 10000; i++) {
-
-            Institute institute = new Institute("Institute " + i);
-            app.addStudents(institute, 1);
-            session.save(institute);
-
-            if (i%BATCH_SIZE == 0) {
-                session.flush();
-                session.clear();
-            }
-
-            if (i%1000 == 0) {
-                System.out.println(i);
-            }
+        for(int i = 0; i < 2; i++) {
+            Session session = app.sessionFactory.openSession();
+            session.get(Student.class, id);
+            session.close();
         }
 
-        transaction.commit();
-        session.close();
+        //transaction.commit();
 
         stopTimer();
     }

@@ -1,12 +1,15 @@
 package hibernate.cachetest;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
 @Entity
 @Table(name="STUDENT")
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "hibernate.cachetest.Student")
 public class Student {
     @Id
     @Column(name = "ID")
